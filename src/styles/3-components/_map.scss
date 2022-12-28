@@ -1,0 +1,65 @@
+@use "../0-abstracts/variables" as *;
+
+.map-container {
+  height: 100%;
+  position: relative;
+}
+
+#map {
+  height: 100%;
+}
+
+.leaflet-bar {
+  border: none !important;
+  a:not(.leaflet-pm-action), a:hover:not(.leaflet-pm-action) {
+    background-color: $black-A-85;
+    color: $grey;
+    border: none;
+    width: 3.6rem !important;
+    height: 3.6rem !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  a:hover {
+    background-color: lighten($color: $black-A-85, $amount: 10);
+  }
+  a.leaflet-disabled {
+    background-color: $black-A-85;
+    color: #505050;
+  }
+}
+
+/* Leaflet controls border radius */
+.leaflet-touch .leaflet-bar {
+  a:first-child {
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+  }
+  a:last-child {
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+  }
+}
+
+/* Leaflet zoom controls centered */
+.leaflet-right {
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+  .leaflet-control-zoom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0;
+  }
+}
+
+/* Leaflet popup */
+.leaflet-popup-content-wrapper, .leaflet-popup-tip {
+  background: $backgroundColor;
+  color: white;
+}

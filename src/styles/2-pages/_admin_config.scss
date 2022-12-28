@@ -1,0 +1,181 @@
+@use "../0-abstracts/index" as *;
+
+.admin-bg, .config-bg {
+  background-color: lighten($color: $backgroundColor, $amount: 5);
+  overflow-y: scroll;
+  overflow-x: hidden;
+  flex: 1;
+}
+
+.admin-cont, .config-cont {
+  margin: 8rem 1rem 5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  max-width: 100rem;
+  overflow: hidden;
+
+  h2 {
+    margin-bottom: 3rem;
+    font-size: 2.8rem;
+    text-align: center;
+  }
+
+  .admin-table {
+    .mat-table,
+    .mat-paginator {
+      width: 100%;
+      background-color: $backgroundColor;
+    }
+
+    .mat-row:last-of-type {
+      th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
+        border-bottom: none;
+      }
+    }
+  }
+
+  .admin__content {
+    margin-top: 3rem;
+    background-color: $backgroundColor;
+    padding: 2rem;
+    border-radius: 0.5rem;
+  }
+
+  @include tablet {
+    h2 {
+      text-align: unset;
+    }
+  }
+
+  @include desktop {
+    margin-left: 10rem;
+    width: auto;
+
+    .admin__content {
+      margin-top: 5rem;
+    }
+
+    h2 {
+      margin-top: 2.5rem;
+      margin-bottom: 5rem;
+      font-size: 3.2rem;
+    }
+  }
+}
+
+.admin-cont .upload-data {
+  .mat-stepper-horizontal {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mat-stepper-horizontal,
+  .mat-stepper-vertical {
+    background-color: transparent;
+  }
+
+  .mat-horizontal-stepper-header-container {
+    align-self: center;
+    width: 50rem;
+  }
+
+  .flights-details {
+    overflow-y: scroll;
+    max-height: 50rem;
+    margin-top: 1rem;
+    background-color: lighten($color: $backgroundColor, $amount: 7);
+    border-radius: 0.5rem;
+  }
+
+  .stepper-button {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .flights-form {
+    margin-top: 2rem;
+  }
+}
+
+.admin-cont .admin__indexes {
+}
+
+.admin-cont .admin__users {
+  padding: 0;
+
+  > .mat-form-field {
+    width: 100%;
+    padding: 0 3rem;
+  }
+}
+
+.admin-cont .admin__backup {
+}
+
+// Admin main page
+.admin-item-container {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2rem;
+  max-width: 100rem;
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include desktop {
+    margin-top: 5rem;
+  }
+
+  @media (min-width: 1400px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.admin-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  padding: 3rem 0rem;
+  border-radius: 0.5rem;
+  min-width: 23rem;
+  width: 85%;
+  margin: 0 2rem;
+  justify-self: center;
+  background-color: $backgroundColor;
+  text-decoration: none;
+  color: white;
+
+  &:hover {
+    background-color: rgba(250, 250, 250, 0.04);
+    cursor: pointer;
+  }
+
+  @include tablet {
+    width: 100%;
+  }
+}
+
+// Sidebar admin
+.admin-options {
+  flex: 1;
+
+  .mat-list-item {
+    &:hover {
+      background-color: rgba($color: white, $alpha: 0.1);
+    }
+
+    &.list-item-active {
+      background-color: rgba($color: white, $alpha: 0.05);
+    }
+  }
+
+  .mat-list-item-content {
+    gap: 2rem;
+  }
+}

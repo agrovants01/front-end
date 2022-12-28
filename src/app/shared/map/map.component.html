@@ -1,0 +1,8 @@
+<div class="map-container">
+  <div id="map"></div>
+  <app-timeslider *ngIf="this.mapService.timeslider"></app-timeslider>
+  <app-view *ngIf="this.mapService.viewListLength > 0"></app-view>
+</div>
+
+<!-- Location Search input -->
+<app-search-location [map]="map"></app-search-location>
